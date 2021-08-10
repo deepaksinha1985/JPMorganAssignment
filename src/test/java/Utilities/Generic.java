@@ -2,17 +2,18 @@ package Utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Generic {
 
 	WebDriver driver=null;
-	
-	
+
+
 
 	public WebDriver Browser(String browser_name)
 	{
 
-		
+
 		try {
 
 
@@ -21,10 +22,13 @@ public class Generic {
 
 			case "chrome":
 			{
-				System.setProperty("webdriver.chorme.driver","D:\\eclipse-workspace\\Cucumberjava\\src\\test\\resources\\Drivers\\chromedriver.exe");//System.getProperty("user.dir")+"/src/test/resources/Drivers/chromedriver.exe");
-			
-				driver= new ChromeDriver();
-				driver.manage().window().maximize(); 
+				String projectpath=System.getProperty("user.dir");
+				System.setProperty("webdriver.chrome.driver",projectpath+"/src/test/resources/Drivers/chromedriver.exe");
+				ChromeOptions options = new ChromeOptions(); 
+				options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"}); 
+				driver = new ChromeDriver(options); 
+				driver.manage().window().maximize();
+
 				break;
 			}
 
