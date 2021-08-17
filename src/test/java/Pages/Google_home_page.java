@@ -28,18 +28,32 @@ public class Google_home_page
 	
 	public void entersearchtext(String value) 
 	{
+		try{
+			
 		txt_searchbox.sendKeys(value);
 		txt_searchbox.sendKeys(Keys.RETURN);
 		
 		System.out.println("Done with value insertion and pressing enter");
+		}
+		catch(Exception e)
+		{
+		System.out.println(e.getMessage());	
+		}
 	}
 
 
 	public void clickonFirstlink()
 	{
+		try{
+			
 	  link_jpmorgan.click();
 	  
 	  System.out.println("Done with Clicking on First link");
+		}
+		catch(Exception e)
+		{
+		System.out.println(e.getMessage());	
+		}
 	}
 
 
